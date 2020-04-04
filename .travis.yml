@@ -3,7 +3,7 @@ services:
   - docker
 
 before_install:
-  - openssl aes-256-cbc -k "$encrypted_pwd" -in service-account.json.enc -out service-account.json -d
+  - openssl aes-256-cbc -k $encrypted_pwd -in service-account.json.enc -out service-account.json -d
   - curl https://sdk.cloud.google.com | bash > /dev/null;
   - source $HOME/google-cloud-sdk/path.bash.inc
   - gcloud components update kubectl

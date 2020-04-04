@@ -7,7 +7,7 @@ env:
     - secure: t/lttc6DEivxY4JnrytNjqi0YlfIdmkfyr002IZ7ZQiybgBParFW2AcxouZBgynPoRO6NSRqcfWjSgX+mk5+1SK6WEFUCOgVt4D7QRFSq3Ko/MciY/b8qMXM2GbEj3nhEIcEj+SEAoizBnqiDjl7THZ4w1SF6PFrP8yWSgJVN3peQgxw21lylmkUgwvzyRmQHys9KtqU4IDLAC8Vu2E902T+Ln82+eZ8uSqthzEkYkuSHOZBHZ8/MqG4nYhcLZ0NgXKC5fQFj0to+D+JtDkTV3v6aj2LtSGSHT7icIaqwlzITBUw4dQvUxPk5TALcwRbs+Rgzw98G9Qcqzf+3f2Wyhcfk8b+ZFN8TtpOg8vpUjnbLjBmPPRmksuaUWvW9+egKVz4X76LQgLySOPzOkqnVlPwpkLCbgLMJ0l16F6ivLfBZ8G4UKO8g90J84SeYfusPGRWYNKCKadA3sOnv9cyDJxL10bGo4eya0C1fXYrMIbYgkJxGJFvBHbQjM9Ye4kIYS+oHWxOXnYKq+/P77JieCOLDoQm7lHmUc/JfC5Mc+O+1JBqwi2f4V6CvwQ/CKU726jVDucFkv8IMaCllCiPRZafK0HZlWLIWcivwRqIWJuLRMWFyL5+vwy3P+Ro395EiJeiyntc3uu8KNm+onkngUzfQJF/shhzIW+dTvSonso=
 
 before_install:
-  - openssl aes-256-cbc -k $encrypted_pwd -in service-account.json.enc -out service-account.json -d
+  - openssl aes-256-cbc -k "$encrypted_pwd" -in service-account.json.enc -out service-account.json -d
   - curl https://sdk.cloud.google.com | bash > /dev/null;
   - source $HOME/google-cloud-sdk/path.bash.inc
   - gcloud components update kubectl

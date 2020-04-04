@@ -3,8 +3,7 @@ services:
   - docker
 
 before_install:
-  - openssl version
-  - openssl aes-256-cbc -K $encrypted_9f3b5599b056_key -iv $encrypted_9f3b5599b056_iv -in service-account.json.enc -out service-account.json -d
+  - openssl aes-256-cbc -K $encrypted_9f3b5599b056_iv -in service-account.json.enc -out service-account.json -d
   - curl https://sdk.cloud.google.com | bash > /dev/null;
   - source $HOME/google-cloud-sdk/path.bash.inc
   - gcloud components update kubectl
@@ -12,3 +11,7 @@ before_install:
   - gcloud config set project fair-catcher-273001
   - gcloud config set compute/zone us-central1-c
   - gcloud container clusters get-credentials multi-cluster
+
+env:
+  global:
+    - secure: RLsPiCm3wRnbvl+n/W4iTbeungXJTME+P+UZPDFm7xd84ie7aiG8/Acz6a5CA2CpAMQFshAumUeaw1WrhkEVYHJaqCYttHYx7g7JqQQw7KfYpvq1QjJeWfo8a7MZkbno6tGt9JRe1uAqpnM29Ic8iikTOc7+uy2LmnvOKRz7+63DWMdxoA7v0JvmerQuLsn7SF4g7HJJPLEueJ3mrM9GFJdcuH0PwVf+rD528u14JFjTiWBD4/MxVkwNjdXNxjWk6+uYfvPMkJFo/UTZPGBbMxIyFRLJvoasnCOy02Aj9CFnnZxJVR047AtA9QwB9OGq8BzXyQVNKfUUXMShL5AAJg5B/gYI3YBjKlf3HbsgS6Es9sLPYRGEAO8OMCwB1vo6dwDtBwygm7iL3OGQr/qA6EjhdiB+rfb0heYw+57doP8NdewOJBArwIQnDQYG4UU3vI697Ir9j8VnErrYgi3YO9jqgmzoXMtWDcFjmv0tJG5rvaiyQnFbMH2o3aMC5yQp/2T7jetBGhNsW678gXUU85AqgW0iFy9moiuqFKBSegj5fqzXwvhV/P9usnOreDXgZx2f3n4z1oEfjItEz7iKEA3aKZfGl4Y1CCtRCdzNOR724jiIR+LFeUNbnCmH3B9rRZuFrXWc81zgdyM7D0PMjbrhrMBQwy/WP0dohXmcL2A=
